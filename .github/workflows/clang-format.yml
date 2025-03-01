@@ -29,4 +29,4 @@ jobs:
           git diff --exit-code || (git add . && git commit -m "Auto-format code" && git push)
         env:
           # Use the GitHub token to authenticate the push
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
