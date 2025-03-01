@@ -1,28 +1,29 @@
 name: ClangFormat Check
 
-on:  
-  push:  
-    branches: [main]  
-  pull_request:  
-    branches: [main]  
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:  # Allows manual triggering from GitHub Actions UI
 
-jobs:  
-  format-check:  
-    runs-on: ubuntu-latest  
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
 
-    steps:  
-      - name: Checkout Code  
-        uses: actions/checkout@v4  
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: Install ClangFormat  
-        run: sudo apt install -y clang-format  
+      - name: Install ClangFormat
+        run: sudo apt install -y clang-format
 
-      - name: Run ClangFormat  
+      - name: Run ClangFormat
         run: |
           find . -regex '.*\.\(cpp\|h\)$' -exec clang-format -i {} +
 
-      - name: Commit Changes  
-        run: |  
-          git config --global user.name "github-actions"  
-          git config --global user.email "actions@github.com"  
+      - name: Commit Changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
           git diff --exit-code || (git add . && git commit -m "Auto-format code" && git push)
