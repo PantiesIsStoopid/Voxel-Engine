@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build GLFW App",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "Src/main.cpp", // Your source file
+        "Src/glad.c", // Glad source file
+        "-I${workspaceFolder}/Include", // Include GLFW headers
+        "-L${workspaceFolder}/Lib", // Link the GLFW lib folder locally
+
+        "-lglfw3", // Link to GLFW
+        "-lopengl32", // OpenGL library
+        "-lgdi32", // GDI library
+        "-o", // Output flag
+        "${workspaceFolder}/main.exe" // Output executable
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ]
+}
