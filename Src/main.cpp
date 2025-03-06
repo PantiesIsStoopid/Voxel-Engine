@@ -7,42 +7,41 @@
 #include <chrono>
 
 float vertices[] = {
-    // Positions         // Colors
-    // Front face (Brown)
-    -0.5f, -0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, -0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, 0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    -0.5f, 0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
+    // Front face (Red)
+    -0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+    0.5f, -0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+    0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
+    -0.5f, 0.5f, 0.5f, 1.0f, 0.0f, 0.0f,
 
-    // Back face (Brown)
-    -0.5f, -0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, -0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, 0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    -0.5f, 0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
+    // Back face (Orange)
+    -0.5f, -0.5f, -0.5f, 1.0f, 0.5f, 0.0f,
+    0.5f, -0.5f, -0.5f, 1.0f, 0.5f, 0.0f,
+    0.5f, 0.5f, -0.5f, 1.0f, 0.5f, 0.0f,
+    -0.5f, 0.5f, -0.5f, 1.0f, 0.5f, 0.0f,
 
-    // Left face (Brown)
-    -0.5f, -0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    -0.5f, -0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    -0.5f, 0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    -0.5f, 0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
+    // Left face (Yellow)
+    -0.5f, -0.5f, -0.5f, 1.0f, 1.0f, 0.0f,
+    -0.5f, -0.5f, 0.5f, 1.0f, 1.0f, 0.0f,
+    -0.5f, 0.5f, 0.5f, 1.0f, 1.0f, 0.0f,
+    -0.5f, 0.5f, -0.5f, 1.0f, 1.0f, 0.0f,
 
-    // Right face (Brown)
-    0.5f, -0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, -0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, 0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, 0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-
-    // Top face (Green)
-    -0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
-    0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+    // Right face (Green)
+    0.5f, -0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
+    0.5f, -0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
     0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f, 0.0f, 1.0f, 0.0f,
+    0.5f, 0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
 
-    // Bottom face (Brown)
-    -0.5f, -0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, -0.5f, -0.5f, 0.6f, 0.3f, 0.0f,
-    0.5f, -0.5f, 0.5f, 0.6f, 0.3f, 0.0f,
-    -0.5f, -0.5f, 0.5f, 0.6f, 0.3f, 0.0f};
+    // Top face (Blue)
+    -0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
+    0.5f, 0.5f, -0.5f, 0.0f, 0.0f, 1.0f,
+    0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+    -0.5f, 0.5f, 0.5f, 0.0f, 0.0f, 1.0f,
+
+    // Bottom face (Violet)
+    -0.5f, -0.5f, -0.5f, 0.5f, 0.0f, 1.0f,
+    0.5f, -0.5f, -0.5f, 0.5f, 0.0f, 1.0f,
+    0.5f, -0.5f, 0.5f, 0.5f, 0.0f, 1.0f,
+    -0.5f, -0.5f, 0.5f, 0.5f, 0.0f, 1.0f};
 
 unsigned int indices[] = {
     0, 1, 2, 2, 3, 0,       // Front face
@@ -175,7 +174,7 @@ int main()
 
     processInput(window, rotationX, rotationY);
 
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glm::mat4 model = glm::mat4(1.0f);
