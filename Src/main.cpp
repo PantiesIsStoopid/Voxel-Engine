@@ -109,7 +109,7 @@ int main()
     return -1;
   }
 
-  GLFWwindow *window = glfwCreateWindow(800, 600, "Rotating Cube", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(800, 600, "The cube", NULL, NULL);
   if (!window)
   {
     std::cerr << "Window Creation Failed!\n";
